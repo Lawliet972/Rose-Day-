@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Happy Rose Day ❤️</title>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -38,49 +41,123 @@
       font-size: 16px;
     }
 
-    .rose {
-      font-size: 45px;
-      animation: float 3s infinite ease-in-out;
-      margin-bottom: 10px;
-    }
-
     footer {
       margin-top: 20px;
       font-size: 14px;
       color: #999;
     }
 
+    /* Rose Section */
+    .rose-container {
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .rose {
+      font-size: 50px;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    #tapText {
+      font-size: 14px;
+      color: #888;
+      margin-top: 8px;
+    }
+
+    /* Hidden message */
+    .message {
+      display: none;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    .message.show {
+      display: block;
+    }
+
+    .rose.open {
+      animation: bloom 1s ease forwards;
+    }
+
+    /* Animations */
     @keyframes float {
       0% { transform: translateY(0); }
-      50% { transform: translateY(-18px); }
+      50% { transform: translateY(-15px); }
       100% { transform: translateY(0); }
+    }
+
+    @keyframes bloom {
+      0% { transform: scale(1); }
+      60% { transform: scale(1.4) rotate(5deg); }
+      100% { transform: scale(1.2); }
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
     }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
+
 <body>
+
   <div class="card">
-    <div class="rose">🌹</div>
-    <h1>Happy Rose Day, My Love</h1>
 
-    <p>
-      Even with miles between us,<br>
-      my heart somehow always finds its way to you.<br><br>
+    <!-- Tap Rose -->
+    <div class="rose-container" onclick="openRose()">
+      <div class="rose" id="rose">🌹</div>
+      <p id="tapText">Tap the rose</p>
+    </div>
 
-      You are gentle, strong, beautiful,<br>
-      and impossible not to love.<br><br>
+    <!-- Hidden Message -->
+    <div class="message" id="message">
+      <h1>Happy Rose Day, Khushboo 🌹</h1>
 
-      This little page exists for one reason—<br>
-      because you exist.
-    </p>
+      <p>
+        Even with miles between us,<br>
+        my heart somehow always finds its way to you.<br><br>
 
-    <footer>
-      Forever yours ❤️
-    </footer>
+        A rose represents deep love, passion, desire, and admiration —<br>
+        everything I feel for you.<br><br>
+
+        Your love for me is immeasurable, and we both know that.<br>
+        Even though we can’t be physically together in this month of love,<br>
+        this little page is my attempt to express<br>
+        everything my heart holds for you.<br><br>
+
+        Thank you for being the special person in my life.<br>
+        Thank you for your efforts.<br>
+        Thank you for your gussa.<br>
+        Thank you for always being there for me.<br><br>
+
+        I love you, Khushboo ❤️
+      </p>
+
+      <footer>
+        — Forever yours, Abhishek ❤️
+      </footer>
+    </div>
+
   </div>
+
+  <script>
+    function openRose() {
+      document.getElementById("rose").classList.add("open");
+      document.getElementById("tapText").style.display = "none";
+      document.getElementById("message").classList.add("show");
+    }
+  </script>
+
 </body>
 </html>
+
